@@ -177,14 +177,14 @@ if __name__ == "__main__":
     opt_study = OptunaStudy_EE(arch_sampler=a_s, normalizer=n, hardware=h)
 
     # Sample to get mean/std
-    opt_study.optimizing = False
-    opt_study(100)
-    opt_study.write_mean_std(update=True)
+    # opt_study.optimizing = False
+    # opt_study(10)
+    # opt_study.write_mean_std(update=True)
 
     # Optimize using cost function
     opt_study.read_mean_std()
     opt_study.optimizing = True
-    best_trial = opt_study(150)
+    best_trial = opt_study(15)
     
     if best_trial is not None:
         best_model = opt_study.arch_sampler.recover_model(best_trial)
