@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --account=dcuttler      # Replace with your PI's allocation/account
+#SBATCH --account=def-romang      # Replace with your PI's allocation/account
 #SBATCH --job-name=my_project_job
 #SBATCH --output=logs/%x-%j.out         # Save stdout to logs/jobname-jobid.out
 #SBATCH --time=01:00:00                 # Max runtime (HH:MM:SS)
