@@ -3,7 +3,7 @@ import torch
 from torch import nn
 from fvcore.nn import FlopCountAnalysis
 from typing import Tuple
-from .mnistfnn_EE import MNISTFNN_EE
+from mnistfnn_EE import MNISTFNN_EE
 
 from optimization_models.model_consts import Hardware, RunType, shapeType
 
