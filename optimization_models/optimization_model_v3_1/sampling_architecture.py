@@ -82,7 +82,6 @@ class ArchitectureSampler:
         return runType
 
     def build_model(self, trial:optuna.Trial) -> MNISTFNN_EE:
-        print("Building model...")
         self._suggest_params(trial)
         datawidth = trial.params[TrialParam.DATAWIDTH]
         branchpoint = trial.params[TrialParam.BRANCHPOINT]

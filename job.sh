@@ -9,7 +9,9 @@
 #SBATCH --mail-type=ALL           # (Optional) email on end/fail
 
 # Load modules
-module load python/3.10
+cd ~/scratch/dcuttler/ECE2500Y
+module purge
+module load python/3.10 scipy-stack
 # virtualenv --no-download $SLURM_TMPDIR/env
 # source $SLURM_TMPDIR/env/bin/activate
 # pip install --no-index --upgrade pip

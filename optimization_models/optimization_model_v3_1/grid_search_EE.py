@@ -138,7 +138,6 @@ class OptunaStudy_EE:
             self.study = optuna.create_study(direction="minimize", sampler=sampler)
         else:
             sampler = optuna.samplers.RandomSampler()
-            print("Starting trial")
             self.study = optuna.create_study(directions=["minimize"]*len(self.cost_weights), sampler=sampler)
 
         objective = self.build_objective()
@@ -167,6 +166,8 @@ def display_trial_params(trial):
 ##########
 
 if __name__ == "__main__":
+    print("IN")
+    
     optuna.logging.set_verbosity(optuna.logging.WARNING)
     torch.backends.quantized.engine = 'qnnpack'
 
