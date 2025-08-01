@@ -10,11 +10,12 @@
 
 # Load modules
 module load python/3.10
-virtualenv --no-download $SLURM_TMPDIR/env
-source $SLURM_TMPDIR/env/bin/activate
-pip install --no-index --upgrade pip
+# virtualenv --no-download $SLURM_TMPDIR/env
+# source $SLURM_TMPDIR/env/bin/activate
+# pip install --no-index --upgrade pip
+source ~/myEnv/bin/activate
 
-pip install --no-index -r ~/requirements.txt
+# pip install --no-index -r ~/requirements.txt
 
 
 # Run your code
