@@ -1,9 +1,9 @@
-from enum import Enum
 import sys
 from pathlib import Path
 project_root = Path(__file__).resolve().parents[2]
 sys.path.append(str(project_root))
 
+import platform
 import optuna
 import numpy as np
 import torch
@@ -168,6 +168,9 @@ def display_trial_params(trial):
 if __name__ == "__main__":
     optuna.logging.set_verbosity(optuna.logging.WARNING)
     torch.backends.quantized.engine = 'qnnpack'
+
+    is_mac = platform.system() == "Darwin"
+    torch.set_num_threads(1 if is_mac else 8)  # Or whatever suits Compute Canada
 
     arch_constraints = ArchitectureConstraints()
     a_s = ArchitectureSampler(arch_constraints)

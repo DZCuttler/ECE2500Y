@@ -12,7 +12,7 @@ class ArchitectureConstraints:
     max_width: int = 256
     max_bn_width: int = 8
     max_head_depth: int = 3
-    max_branch_depth: int = 2
+    max_branch_depth: int = 3
     max_tail_depth: int = 5
 
     def __post_init__(self):
@@ -33,7 +33,7 @@ class ArchitectureSampler:
         trial.suggest_categorical(TrialParam.BRANCHPOINT, [1, 0])
         trial.suggest_float(TrialParam.LOSS_WEIGHT, 0.0, 1.0, step=0.05)
 
-        trial.suggest_int(TrialParam.HEAD_DEPTH, 0, self.architecture.max_head_depth)
+        trial.suggest_int(TrialParam.HEAD_DEPTH, 1, self.architecture.max_head_depth)
         trial.suggest_int(TrialParam.BRANCH_DEPTH, 0, self.architecture.max_branch_depth)
         trial.suggest_int(TrialParam.TAIL_DEPTH, -1, self.architecture.max_tail_depth)
 
@@ -48,7 +48,7 @@ class ArchitectureSampler:
 
     def _build_trial_layers(self, trial:optuna.Trial) -> Tuple[List[int], List[int], List[int]]:
         head_depth = trial.params[TrialParam.HEAD_DEPTH]
-        branch_depth = trial.params[TrialParam.BRANCHPOINT]
+        branch_depth = trial.params[TrialParam.BRANCH_DEPTH]
         tail_depth = trial.params[TrialParam.TAIL_DEPTH]
 
         head_layers = []
@@ -82,6 +82,7 @@ class ArchitectureSampler:
         return runType
 
     def build_model(self, trial:optuna.Trial) -> MNISTFNN_EE:
+        print("Building model...")
         self._suggest_params(trial)
         datawidth = trial.params[TrialParam.DATAWIDTH]
         branchpoint = trial.params[TrialParam.BRANCHPOINT]

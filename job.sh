@@ -18,4 +18,4 @@ pip install --no-index -r ~/requirements.txt
 
 
 # Run your code
-python optimization_models/optimization_model_v3/grid_search_EE.py
+python optimization_models/optimization_model_v3_1/grid_search_EE.py

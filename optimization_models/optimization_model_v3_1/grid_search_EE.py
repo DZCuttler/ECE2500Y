@@ -138,6 +138,7 @@ class OptunaStudy_EE:
             self.study = optuna.create_study(direction="minimize", sampler=sampler)
         else:
             sampler = optuna.samplers.RandomSampler()
+            print("Starting trial")
             self.study = optuna.create_study(directions=["minimize"]*len(self.cost_weights), sampler=sampler)
 
         objective = self.build_objective()

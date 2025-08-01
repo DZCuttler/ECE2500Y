@@ -32,7 +32,7 @@ class MNISTFNN_EE(nn.Module):
         self.quant = tq.QuantStub()
         self.head_dequant = tq.DeQuantStub()
         self.branch_dequant = tq.DeQuantStub()
-        self.device = 'cpu'
+        self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
         self.quantized = False
         self.runType = runType
 
