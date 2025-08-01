@@ -6,11 +6,16 @@
 #SBATCH --mem=4G                        # Memory per node
 #SBATCH --cpus-per-task=2              # Number of CPU cores
 #SBATCH --mail-user=david.cuttler@mail.utoronto.ca       # (Optional) get email updates
-# SBATCH --mail-type=ALL           # (Optional) email on end/fail
+#SBATCH --mail-type=ALL           # (Optional) email on end/fail
 
 # Load modules
-module load python/3.10  # Or whatever version you need
-source ~/myenv/bin/activate  # Activate your conda/venv if needed
+module load python/3.10
+virtualenv --no-download $SLURM_TMPDIR/env
+source $SLURM_TMPDIR/env/bin/activate
+pip install --no-index --upgrade pip
+
+pip install --no-index -r requirements.txt
+
 
 # Run your code
 python optimization_models/optimization_model_v3/grid_search_EE.py

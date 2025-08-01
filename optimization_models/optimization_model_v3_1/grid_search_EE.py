@@ -198,169 +198,18 @@ if __name__ == "__main__":
 
 
 # Best trial found:
-# Trial 62 finished with Branch Loss=2.2944, Branch Accuracy=93.24%, Full Loss=2.2253, Full Accuracy=93.34%,
-#         Latency=0.7262ms, Power=0.7673mW, Bandwidth=1.6800Mbps
-# Trial 62:        Head: [7], Branch: [64] (1 layers before split), Tail: [128],  datawidth: 8 bits, loss weight: 0.65
-# Layer 0: Flatten()
-# Layer 1: Linear(784, 7)
-# Layer 2: ReLU()
+# Trial 196, datawidth=8, loss weight=0.25
+# BRANCH -> TX -> 784 -> 256 -> 10
+#    \--> 784 -> 10
 # BRANCH
-#         Layer 3: Linear(7, 64)
-#         Layer 4: ReLU()
-#         Layer 5: Linear(64, 10)
+#         Layer 0: Flatten()
+#         Layer 1: Linear(784, 10)
 # SPLIT
-# Layer 6: Linear(7, 128)
-# Layer 7: ReLU()
-# Layer 8: Linear(128, 10)
-# Cost: -0.7080
-
-# Best trial found:
-# Trial 39 finished with Branch Loss=2.3585, Branch Accuracy=92.94%, Full Loss=2.4399, Full Accuracy=92.89%,
-#         Latency=0.6802ms, Power=0.7673mW, Bandwidth=1.6800Mbps
-# Trial 39:        Head: [7], Branch: [64] (0 layers before split), Tail: [32, 16],  datawidth: 8 bits, loss weight: 0.35
-# Layer 0: Flatten()
-# Layer 1: Linear(784, 7)
-# Layer 2: ReLU()
-# BRANCH
-#         Layer 3: Linear(7, 64)
-#         Layer 4: ReLU()
-#         Layer 5: Linear(64, 10)
-# SPLIT
-# Layer 6: Linear(7, 32)
-# Layer 7: ReLU()
-# Layer 8: Linear(32, 16)
-# Layer 9: ReLU()
-# Layer 10: Linear(16, 10)
-# Cost: -0.7667
-
-# Best trial found:
-# Trial 11 finished with 
-#         Branch Loss=2.6706, Branch Accuracy=92.14%, Full Loss=2.3200, Full Accuracy=93.04%,
-#         Branch Latency=0.4694ms, Tail Latency=1.8665ms, Power=0.1808mW, Bandwidth=1.4400Mbps
-# Trial 11:        Head: [6], Branch: [32] (0 layers before split), Tail: [16, 128, 256],  datawidth: 8 bits, loss weight: 0.25
-# Layer 0: Flatten()
-# Layer 1: Linear(784, 6)
-# Layer 2: ReLU()
-# BRANCH
-#         Layer 3: Linear(6, 32)
-#         Layer 4: ReLU()
-#         Layer 5: Linear(32, 10)
-# SPLIT
-# Layer 6: Linear(6, 16)
-# Layer 7: ReLU()
-# Layer 8: Linear(16, 128)
-# Layer 9: ReLU()
-# Layer 10: Linear(128, 256)
-# Layer 11: ReLU()
-# Layer 12: Linear(256, 10)
-# Cost: -0.6838
-
-
-# Best trial found:
-# Trial 72 finished with 
-#         Branch Loss=2.7620, Branch Accuracy=92.52%, Full Loss=1.9756, Full Accuracy=93.92%,
-#         Branch Latency=0.5717ms, Tail Latency=1.4214ms, Power=0.3053mW, Bandwidth=1.9200Mbps
-# 784 -> 8 -> BRANCH -> TX -> 8 -> 128 -> 128 -> 32 -> 10
-#                \--> 8 -> 10
-# Layer 1: Flatten()
-# Layer 2: Linear(784, 8)
-# Layer 3: ReLU()
-# BRANCH
-#         Layer 4: Linear(8, 10)
-#         SPLIT
-# Layer 7: Linear(8, 128)
-# Layer 8: ReLU()
-# Layer 9: Linear(128, 128)
-# Layer 10: ReLU()
-# Layer 11: Linear(128, 32)
-# Layer 12: ReLU()
-# Layer 13: Linear(32, 10)
-# Cost: -0.6406
-
-# Best trial found:
-# Trial 68 finished with 
-#         Branch Loss=1.8096, Branch Accuracy=94.72%, Full Loss=1.8235, Full Accuracy=94.71%,
-#         Branch Latency=1.1434ms, Tail Latency=1.1578ms, Power=1.0605mW, Bandwidth=0.0000Mbps
-# 784 -> 16 -> BRANCH -> 16 -> 10
-#                 \--> 16 -> 10
-# Layer 1: Flatten()
-# Layer 2: Linear(784, 16)
-# Layer 3: ReLU()
-# BRANCH
-#         Layer 4: Linear(16, 10)
-#         Layer 6: Linear(16, 10)
-# Cost: -0.6783
-
-# Best trial found: Trial {best_trial.number+1}
-# 784 -> 1 -> BRANCH -> TX -> 1 -> 256 -> 128 -> 128 -> 256 -> 10
-#                \--> 1 -> 10
-# Layer 0: Flatten()
-# Layer 1: Linear(784, 1)
-# Layer 2: ReLU()
-# BRANCH
-#         Layer 3: Linear(1, 10)
-# SPLIT
-# Layer 4: Linear(1, 256)
-# Layer 5: ReLU()
-# Layer 6: Linear(256, 128)
-# Layer 7: ReLU()
-# Layer 8: Linear(128, 128)
-# Layer 9: ReLU()
-# Layer 10: Linear(128, 256)
-# Layer 11: ReLU()
-# Layer 12: Linear(256, 10)
-# Trial 83 finished with 
-#         Branch Loss=16.6873, Branch Accuracy=34.14%, Full Loss=15.2836, Full Accuracy=38.33%,
-#         Branch Latency=0.0715ms, Tail Latency=3.1300ms, Power=0.0087mW, Bandwidth=0.2400Mbps
-# Cost: -0.9153
-
-# Best trial found:
-# Trial 108, datawidth=8, loss weight=0.25
-# 784 -> 16 -> BRANCH -> 16 -> 256 -> 10
-#                 \--> 16 -> 10
-# Layer 0: Flatten()
-# Layer 1: Linear(784, 16)
-# Layer 2: ReLU()
-# BRANCH
-#         Layer 3: Linear(16, 10)
-# Layer 4: Linear(16, 256)
-# Layer 5: ReLU()
-# Layer 6: Linear(256, 10)
-# Trial 108 finished with 
-#         Branch Loss=1.7215, Branch Accuracy=95.02%, Full Loss=1.1654, Full Accuracy=96.64%,
-#         Branch Latency=1.1434ms, Tail Latency=1.7424ms, Power=0.9674mW, Bandwidth=0.0000Mbps
-# Cost: -0.6198
-
-# Best trial found:
-# Trial 110, datawidth=8, loss weight=0.15000000000000002
-# 784 -> 16 -> BRANCH -> 16 -> 128 -> 10
-#                 \--> 16 -> 10
-# Layer 0: Flatten()
-# Layer 1: Linear(784, 16)
-# Layer 2: ReLU()
-# BRANCH
-#         Layer 3: Linear(16, 10)
-# Layer 4: Linear(16, 128)
-# Layer 5: ReLU()
-# Layer 6: Linear(128, 10)
-# Trial 110 finished with 
-#         Branch Loss=1.2817, Branch Accuracy=93.92%, Full Loss=1.2817, Full Accuracy=96.00%,
-#         Branch Latency=1.1434ms, Tail Latency=1.4429ms, Power=0.9624mW, Bandwidth=0.0000Mbps
-# Cost: -0.9942
-
-# Best trial found:
-# Trial 118, datawidth=8, loss weight=0.15000000000000002
-# 784 -> 16 -> BRANCH -> 16 -> 128 -> 10
-#                 \--> 16 -> 10
-# Layer 0: Flatten()
-# Layer 1: Linear(784, 16)
-# Layer 2: ReLU()
-# BRANCH
-#         Layer 3: Linear(16, 10)
-# Layer 4: Linear(16, 128)
-# Layer 5: ReLU()
-# Layer 6: Linear(128, 10)
-# Trial 118 finished with 
-#         Branch Loss=1.2178, Branch Accuracy=94.24%, Full Loss=1.2178, Full Accuracy=96.11%,
-#         Branch Latency=1.1434ms, Tail Latency=1.4429ms, Power=0.9624mW, Bandwidth=0.0000Mbps
-# Cost: -1.0949
+# Layer 2: Flatten()
+# Layer 3: Linear(784, 256)
+# Layer 4: ReLU()
+# Layer 5: Linear(256, 10)
+# Trial 196 finished with 
+#         Branch Loss=0.6868, Branch Accuracy=92.28%, Full Loss=0.6868, Full Accuracy=98.01%,
+#         Branch Latency=0.7056ms, Tail Latency=14.2952ms, Power=0.0540mW, Bandwidth=188.1600Mbps
+# Cost: -2.4633
